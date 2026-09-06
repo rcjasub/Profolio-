@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #FFFFFF; }
+  body { -webkit-font-smoothing: antialiased; }
+  a { color: #0A0A0A; text-decoration: none; }
+  a:hover { color: #FF0800; }
+  ::selection { background: #FF0800; color: #FFFFFF; }
+</style>
+</helmet>
+
+<div style="position: relative; min-height: 100vh; background: #FFFFFF; font-family: Archivo, system-ui, sans-serif; color: #0A0A0A;">
+
+  <nav style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 20px 40px; background: #FFFFFF; border-bottom: 1px solid #0A0A0A;">
+    <a href="#home" onClick="{{ goHome }}" style="display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: #0A0A0A;" style-hover="color: #0A0A0A;">
+      <span style="width: 11px; height: 11px; background: #FF0800;"></span>Your Name
+    </a>
+    <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
+      <a href="#work" onClick="{{ goWork }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #0A0A0A; padding: 8px 14px;" style-hover="color: #FFFFFF; background: #FF0800;">Work</a>
+      <a href="#about" onClick="{{ goAbout }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #0A0A0A; padding: 8px 14px;" style-hover="color: #FFFFFF; background: #FF0800;">About</a>
+      <a href="#path" onClick="{{ goPath }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #0A0A0A; padding: 8px 14px;" style-hover="color: #FFFFFF; background: #FF0800;">Path</a>
+      <a href="#gallery" onClick="{{ goGallery }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #0A0A0A; padding: 8px 14px;" style-hover="color: #FFFFFF; background: #FF0800;">Gallery</a>
+      <a href="#contact" onClick="{{ goContact }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: #FFFFFF; background: #0A0A0A; padding: 8px 18px;" style-hover="color: #FFFFFF; background: #FF0800;">Contact</a>
+    </div>
+  </nav>
+
+  <main style="position: relative; z-index: 10;">
+
+    <section id="home" data-screen-label="Home" style="scroll-margin-top: 70px; border-bottom: 1px solid #0A0A0A;">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 96px 40px 72px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 40px;">Portfolio &mdash; 2026</p>
+        <h1 style="font-size: clamp(58px, 11vw, 168px); font-weight: 700; line-height: .88; letter-spacing: -.035em; margin: 0; text-transform: uppercase;">Design<br />&amp; Build<span style="color: #FF0800;">.</span></h1>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 64px; align-items: end;">
+          <p style="font-size: 21px; line-height: 1.55; margin: 0; max-width: 520px; text-wrap: pretty;">I make interfaces that stay calm under load &mdash; quiet on the surface, exact underneath.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;">
+            <a href="#work" onClick="{{ goWork }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: 17px 34px; color: #FFFFFF; background: #FF0800;" style-hover="color: #FFFFFF; background: #0A0A0A;">See the work</a>
+            <a href="#contact" onClick="{{ goContact }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: 17px 34px; color: #0A0A0A; border: 1px solid #0A0A0A;" style-hover="color: #FFFFFF; background: #0A0A0A;">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #0A0A0A; aspect-ratio: 24 / 9; background-color: #FFFFFF; background-image: repeating-linear-gradient(135deg, #EDEDED 0 16px, #FFFFFF 16px 32px); display: flex; align-items: center; justify-content: center;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 24px; line-height: 2;">hero image &mdash; full bleed<br />2880&times;1080</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-top: 1px solid #0A0A0A;">
+        <div style="padding: 34px 40px; border-right: 1px solid #0A0A0A;">
+          <p style="font-size: 46px; font-weight: 700; letter-spacing: -.03em; margin: 0;">12</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #6B6B6B; margin: 8px 0 0;">Shipped</p>
+        </div>
+        <div style="padding: 34px 40px; border-right: 1px solid #0A0A0A;">
+          <p style="font-size: 46px; font-weight: 700; letter-spacing: -.03em; margin: 0; color: #FF0800;">04</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #6B6B6B; margin: 8px 0 0;">Hackathon wins</p>
+        </div>
+        <div style="padding: 34px 40px; border-right: 1px solid #0A0A0A;">
+          <p style="font-size: 46px; font-weight: 700; letter-spacing: -.03em; margin: 0;">03</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #6B6B6B; margin: 8px 0 0;">Years building</p>
+        </div>
+        <div style="padding: 34px 40px;">
+          <p style="font-size: 46px; font-weight: 700; letter-spacing: -.03em; margin: 0;">01</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #6B6B6B; margin: 8px 0 0;">Sourdough starter</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" data-screen-label="Work" style="scroll-margin-top: 70px; border-bottom: 1px solid #0A0A0A;">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 88px 40px 56px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 22px;">01 &mdash; Work</p>
+        <h2 style="font-size: clamp(38px, 6vw, 82px); font-weight: 700; line-height: .95; letter-spacing: -.03em; text-transform: uppercase; margin: 0 0 24px;">Selected work</h2>
+        <p style="max-width: 540px; font-size: 18px; line-height: 1.65; color: #4A4A4A; margin: 0;">Six projects, each a different kind of pressure. Case studies on request.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); border-top: 1px solid #0A0A0A;">
+        <article style="padding: 28px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background: #FFFFFF;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">1600&times;1200</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">01</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Tidepool</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 20px;">A reading app built around restraint. Sync layer rewritten twice until it stopped lying.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;">
+            <span>Swift</span><span>CloudKit</span><span>2025</span>
+          </div>
+        </article>
+        <article style="padding: 28px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background: #FFFFFF;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">1600&times;1200</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">02</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Nightshift</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 20px;">Scheduling for volunteer crews. Four hundred shifts filled in its first month.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;">
+            <span>React</span><span>Postgres</span><span>2025</span>
+          </div>
+        </article>
+        <article style="padding: 28px; border-bottom: 1px solid #0A0A0A; background: #FFFFFF;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">1600&times;1200</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">03</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Constellate</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 20px;">Notes rendered as a walkable star map. Won best design at a 24-hour build.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;">
+            <span>Canvas</span><span>WebGL</span><span>2024</span>
+          </div>
+        </article>
+        <article style="padding: 28px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background: #FFFFFF;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">1600&times;1200</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">04</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Sourdough OS</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 20px;">Sensors watching a starter rise, plotted like telemetry. Still running.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;">
+            <span>Arduino</span><span>Python</span><span>2024</span>
+          </div>
+        </article>
+        <article style="padding: 28px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background: #FFFFFF;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">1600&times;1200</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">05</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Fieldnotes</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 20px;">Offline-first journal for long runs. Conflict resolution taught me humility.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;">
+            <span>TypeScript</span><span>SQLite</span><span>2023</span>
+          </div>
+        </article>
+        <article style="padding: 28px; border-bottom: 1px solid #0A0A0A; background: #FFFFFF;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">1600&times;1200</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">06</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Paper Radio</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 20px;">A printed zine that plays music. Layout in code, audio behind the codes.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;">
+            <span>Print</span><span>Web Audio</span><span>2023</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" data-screen-label="About" style="scroll-margin-top: 70px; border-bottom: 1px solid #0A0A0A;">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 88px 40px 96px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 22px;">02 &mdash; About</p>
+        <h2 style="font-size: clamp(38px, 6vw, 82px); font-weight: 700; line-height: .95; letter-spacing: -.03em; text-transform: uppercase; margin: 0 0 64px;">The hand behind it</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; align-items: start;">
+          <div style="aspect-ratio: 3 / 4; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 14px, #FFFFFF 14px 28px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 24px; line-height: 2;">portrait<br />1200&times;1600</span>
+          </div>
+          <div>
+            <p style="font-size: 22px; line-height: 1.6; margin: 0 0 24px; text-wrap: pretty;">I work in the space where a rough idea starts behaving like a real thing &mdash; interfaces, tools, and systems that hold up when the load arrives.</p>
+            <p style="font-size: 17px; line-height: 1.75; color: #4A4A4A; margin: 0 0 44px;">Trained in design, fluent in code, happiest at the seam between them. Off the clock: film photography, long-distance running, and an unreasonable interest in bread.</p>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #FF0800; margin: 0 0 18px;">Tools</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); border-top: 1px solid #0A0A0A; border-left: 1px solid #0A0A0A; margin-bottom: 44px;">
+              <span style="padding: 15px 18px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;">TypeScript</span>
+              <span style="padding: 15px 18px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;">React</span>
+              <span style="padding: 15px 18px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;">Figma</span>
+              <span style="padding: 15px 18px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;">Swift</span>
+              <span style="padding: 15px 18px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;">Python</span>
+              <span style="padding: 15px 18px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;">Blender</span>
+            </div>
+            <a href="#contact" onClick="{{ goContact }}" style="display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: 16px 32px; color: #FFFFFF; background: #0A0A0A;" style-hover="color: #FFFFFF; background: #FF0800;">Reach me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="path" data-screen-label="Path" style="scroll-margin-top: 70px; border-bottom: 1px solid #0A0A0A;">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 88px 40px 96px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 22px;">03 &mdash; Path</p>
+        <h2 style="font-size: clamp(38px, 6vw, 82px); font-weight: 700; line-height: .95; letter-spacing: -.03em; text-transform: uppercase; margin: 0 0 64px;">Experience</h2>
+
+        <div style="border-top: 1px solid #0A0A0A; margin-bottom: 88px;">
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #FF0800; margin: 6px 0 0;">2025 &mdash; NOW</p>
+            <div>
+              <h3 style="font-size: 28px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Product Engineer &middot; Company</h3>
+              <p style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0; max-width: 620px;">Own the design-to-ship loop on a four-person team. Led the onboarding rewrite that cut drop-off by a third.</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #6B6B6B; margin: 6px 0 0;">2024</p>
+            <div>
+              <h3 style="font-size: 28px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Design Intern &middot; Studio</h3>
+              <p style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0; max-width: 620px;">Prototyped interaction concepts across three client launches; built the team's component library.</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #6B6B6B; margin: 6px 0 0;">2023</p>
+            <div>
+              <h3 style="font-size: 28px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Freelance &middot; Various</h3>
+              <p style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0; max-width: 620px;">Sites and identity systems for five small businesses and one very demanding cat rescue.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -.025em; text-transform: uppercase; margin: 0 0 32px;">Awards</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border-top: 1px solid #0A0A0A; border-left: 1px solid #0A0A0A; margin-bottom: 48px;">
+          <div style="padding: 30px 26px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-size: 22px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Best Design</p>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0;">24-hour hackathon &middot; 2024</p>
+          </div>
+          <div style="padding: 30px 26px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background: #FF0800;">
+            <p style="font-size: 22px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px; color: #FFFFFF;">First Overall</p>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.85); margin: 0;">University hackathon &middot; 2024</p>
+          </div>
+          <div style="padding: 30px 26px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-size: 22px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Hardware Prize</p>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0;">Maker weekend &middot; 2023</p>
+          </div>
+          <div style="padding: 30px 26px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-size: 22px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">People's Choice</p>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0;">Design jam &middot; 2023</p>
+          </div>
+        </div>
+        <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; border-bottom: 2px solid #FF0800; padding-bottom: 4px;">Download r&eacute;sum&eacute; &mdash; PDF</a>
+      </div>
+    </section>
+
+    <section id="gallery" data-screen-label="Gallery" style="scroll-margin-top: 70px; border-bottom: 1px solid #0A0A0A;">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 88px 40px 56px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 22px;">04 &mdash; Gallery</p>
+        <h2 style="font-size: clamp(38px, 6vw, 82px); font-weight: 700; line-height: .95; letter-spacing: -.03em; text-transform: uppercase; margin: 0 0 24px;">Side quests</h2>
+        <p style="max-width: 540px; font-size: 18px; line-height: 1.65; color: #4A4A4A; margin: 0;">Film frames and sketchbook pages. Made for no reason other than the light was right.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); border-top: 1px solid #0A0A0A; border-left: 1px solid #0A0A0A;">
+        <div style="grid-column: span 2; aspect-ratio: 16 / 9; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">wide &mdash; 2400&times;1350</span>
+        </div>
+        <div style="aspect-ratio: 3 / 4; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">900&times;1200</span>
+        </div>
+        <div style="aspect-ratio: 1 / 1; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">1200&times;1200</span>
+        </div>
+        <div style="aspect-ratio: 1 / 1; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">1200&times;1200</span>
+        </div>
+        <div style="grid-column: span 2; aspect-ratio: 16 / 9; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">wide &mdash; 2400&times;1350</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" data-screen-label="Contact" style="scroll-margin-top: 70px; background: #0A0A0A;">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 104px 40px 88px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 30px;">05 &mdash; Contact</p>
+        <h2 style="font-size: clamp(40px, 8vw, 116px); font-weight: 700; line-height: .9; letter-spacing: -.035em; text-transform: uppercase; margin: 0 0 40px; color: #FFFFFF;">Let's make<br />something<span style="color: #FF0800;">.</span></h2>
+        <p style="max-width: 520px; font-size: 19px; line-height: 1.7; color: #B5B5B5; margin: 0 0 48px;">Open to collaborations, difficult problems, and full-time work. I answer everything that isn't a pitch deck.</p>
+        <a href="mailto:you@example.com" style="display: inline-block; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: -.02em; padding: 20px 44px; color: #FFFFFF; background: #FF0800;" style-hover="color: #0A0A0A; background: #FFFFFF;">you@example.com</a>
+        <div style="display: flex; gap: 32px; flex-wrap: wrap; margin-top: 56px;">
+          <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;" style-hover="color: #FF0800;">GitHub</a>
+          <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;" style-hover="color: #FF0800;">LinkedIn</a>
+          <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;" style-hover="color: #FF0800;">Instagram</a>
+          <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;" style-hover="color: #FF0800;">Read.cv</a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 26px 40px; background: #0A0A0A; border-top: 1px solid #2A2A2A;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">Built by hand</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">&copy; 2026</span>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  go(id) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      const el = document.getElementById(id);
+      if (!el) return;
+      let sc = this.scrollParent();
+      const isDoc = sc === window;
+      if (isDoc) sc = document.scrollingElement || document.documentElement;
+      const nav = document.querySelector("nav");
+      const off = (nav ? nav.getBoundingClientRect().height : 0) + 8;
+      const rel = isDoc ? (sc.scrollTop || 0) : sc.scrollTop - sc.getBoundingClientRect().top;
+      const top = Math.max(0, el.getBoundingClientRect().top + rel - off);
+      if (typeof sc.scrollTo === "function") sc.scrollTo({ top: top, behavior: "smooth" });
+      const before = sc.scrollTop;
+      setTimeout(() => { if (sc.scrollTop === before) sc.scrollTop = top; }, 250);
+    };
+  }
+
+  scrollParent() {
+    let el = document.querySelector("main");
+    while (el && el.parentElement) {
+      el = el.parentElement;
+      const oy = getComputedStyle(el).overflowY;
+      if ((oy === "auto" || oy === "scroll") && el.scrollHeight > el.clientHeight) return el;
+    }
+    return window;
+  }
+
+  renderVals() {
+    return {
+      goHome: this.go("home"),
+      goWork: this.go("work"),
+      goAbout: this.go("about"),
+      goPath: this.go("path"),
+      goGallery: this.go("gallery"),
+      goContact: this.go("contact"),
+    };
+  }
+}
+</script>
+</body>
+</html>

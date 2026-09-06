@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #FFFFFF; }
+  body { -webkit-font-smoothing: antialiased; }
+  a { color: #0A0A0A; text-decoration: none; }
+  a:hover { color: #FF0800; }
+  ::selection { background: #FF0800; color: #FFFFFF; }
+  @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+  @keyframes sweep { from { transform: translateX(-101%); } to { transform: translateX(0); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<div style="position: relative; min-height: 100vh; background: #FFFFFF; font-family: Archivo, system-ui, sans-serif; color: #0A0A0A;">
+
+  <div style="position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: url('uploads/botanical_strawberry_cranberry_background.png'); background-size: cover; background-position: center; opacity: .55;"></div>
+  
+
+  <nav style="position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 16px 40px; background: rgba(255,255,255,.92); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-bottom: 1px solid #0A0A0A;">
+    <a href="#home" onClick="{{ goHome }}" style="display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: #0A0A0A;" style-hover="color: #0A0A0A;">
+      <span style="width: 11px; height: 11px; background: #FF0800; animation: pulse-dot 3.4s ease-in-out infinite;"></span>Your Name
+    </a>
+    <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
+      <a href="#try" onClick="{{ goTry }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #0A0A0A; padding: 8px 13px; transition: background .12s;" style-hover="color: #FFFFFF; background: #FF0800;">Try it</a>
+      <a href="#story" onClick="{{ goStory }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #0A0A0A; padding: 8px 13px; transition: background .12s;" style-hover="color: #FFFFFF; background: #FF0800;">Story</a>
+      <a href="#work" onClick="{{ goWork }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #0A0A0A; padding: 8px 13px; transition: background .12s;" style-hover="color: #FFFFFF; background: #FF0800;">Work</a>
+      <a href="#path" onClick="{{ goPath }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #0A0A0A; padding: 8px 13px; transition: background .12s;" style-hover="color: #FFFFFF; background: #FF0800;">Path</a>
+      <a href="#contact" onClick="{{ goContact }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: #FFFFFF; background: #0A0A0A; padding: 8px 18px;" style-hover="color: #FFFFFF; background: #FF0800;">Hire me</a>
+    </div>
+  </nav>
+
+  <main style="position: relative; z-index: 10;">
+
+    <section id="home" data-screen-label="Home — story hero" style="scroll-margin-top: 62px; border-bottom: 1px solid #0A0A0A; background: rgba(255,255,255,.55);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 84px 40px 64px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin: 0 0 34px;">
+          <span style="width: 8px; height: 8px; background: #FF0800; animation: pulse-dot 3.4s ease-in-out infinite;"></span>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #0A0A0A; margin: 0;">Open to work &mdash; replies within a day</p>
+        </div>
+        <h1 style="font-size: clamp(40px, 6.4vw, 96px); font-weight: 800; line-height: .96; letter-spacing: -.035em; margin: 0; max-width: 20ch; text-wrap: pretty;">I got tired of software that panics under load<span style="color: #FF0800;">.</span> So I started building the calm kind<span style="color: #FF0800;">.</span></h1>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 44px; margin-top: 52px; align-items: start;">
+          <p style="font-size: 20px; line-height: 1.6; margin: 0; max-width: 560px; color: #2A2A2A; text-wrap: pretty;">Three years ago I shipped a booking tool that fell over the night it launched. Everything since has been an argument with that version of myself &mdash; interfaces that stay quiet on the surface and exact underneath. Below you can drive one yourself before you read a word of my r&eacute;sum&eacute;.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="#try" onClick="{{ goTry }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: 17px 32px; color: #FFFFFF; background: #FF0800;" style-hover="color: #FFFFFF; background: #0A0A0A;">Drive a project &rarr;</a>
+            <a href="#work" onClick="{{ goWork }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: 17px 32px; color: #0A0A0A; border: 1px solid #0A0A0A;" style-hover="color: #FFFFFF; background: #0A0A0A;">See the work</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border-top: 1px solid #0A0A0A;">
+        <div style="aspect-ratio: 4 / 5; border-right: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 14px, #FFFFFF 14px 28px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 26px; line-height: 2.1;">Photo 1 &mdash; you, real camera<br />at your desk, mid-work<br />1600&times;2000 &middot; not AI, not stock</span>
+        </div>
+        <div style="aspect-ratio: 4 / 5; border-right: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 14px, #FFFFFF 14px 28px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 26px; line-height: 2.1;">Photo 2 &mdash; version one<br />the ugly first prototype<br />screenshot or phone photo</span>
+        </div>
+        <div style="aspect-ratio: 4 / 5; background-image: repeating-linear-gradient(135deg, #EDEDED 0 14px, #FFFFFF 14px 28px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 26px; line-height: 2.1;">Photo 3 &mdash; today<br />the same screen now<br />same crop as photo 2</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; padding: 16px 40px; border-top: 1px solid #0A0A0A; background: #0A0A0A;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #FF0800;">Left to right</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .12em; color: #B5B5B5;">The person, the embarrassing first build, the thing it grew into. Shoot all three yourself &mdash; the imperfection is the proof.</span>
+      </div>
+    </section>
+
+    <section id="try" data-screen-label="Try it — interactive walkthrough" style="scroll-margin-top: 62px; border-bottom: 1px solid #0A0A0A; background: rgba(250,250,250,.62);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 84px 40px 24px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 22px;">01 &mdash; Try it, don't read about it</p>
+        <h2 style="font-size: clamp(36px, 5.6vw, 78px); font-weight: 700; line-height: .96; letter-spacing: -.03em; text-transform: uppercase; margin: 0 0 22px;">Drive Nightshift<br />in four steps</h2>
+        <p style="max-width: 560px; font-size: 18px; line-height: 1.65; color: #4A4A4A; margin: 0 0 44px;">This is the real flow with seeded data &mdash; the same one that filled four hundred volunteer shifts in a month. Click through it. Arrow keys work too.</p>
+      </div>
+
+      <div style="max-width: 1280px; margin: 0 auto; padding: 0 40px 84px;">
+        <div style="border: 1px solid #0A0A0A; background: #FFFFFF;">
+          <div style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid #0A0A0A;">
+            <span style="width: 9px; height: 9px; background: #FF0800;"></span>
+            <span style="width: 9px; height: 9px; background: #0A0A0A;"></span>
+            <span style="width: 9px; height: 9px; border: 1px solid #0A0A0A;"></span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B; margin-left: 8px;">nightshift &mdash; live sandbox</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, 1fr);">
+            <div style="border-right: 1px solid #0A0A0A; min-height: 430px; position: relative;">
+              <div data-step="0" style="padding: 28px;">
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B; margin: 0 0 18px;">Open shifts &middot; week of 14 Sep</p>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px; border: 1px solid #0A0A0A;">
+                    <div>
+                      <p style="font-size: 17px; font-weight: 600; margin: 0 0 4px;">Front desk &middot; Mon 18:00</p>
+                      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6B6B; margin: 0;">2 of 3 filled</p>
+                    </div>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 12px; color: #FFFFFF; background: #FF0800;">1 gap</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px; border: 1px solid #D6D6D6;">
+                    <div>
+                      <p style="font-size: 17px; font-weight: 600; margin: 0 0 4px;">Kitchen &middot; Tue 07:00</p>
+                      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6B6B; margin: 0;">4 of 4 filled</p>
+                    </div>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 12px; color: #6B6B6B; border: 1px solid #D6D6D6;">Done</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px; border: 1px solid #D6D6D6;">
+                    <div>
+                      <p style="font-size: 17px; font-weight: 600; margin: 0 0 4px;">Deliveries &middot; Wed 12:30</p>
+                      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6B6B; margin: 0;">3 of 3 filled</p>
+                    </div>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 12px; color: #6B6B6B; border: 1px solid #D6D6D6;">Done</span>
+                  </div>
+                </div>
+              </div>
+
+              <div data-step="1" style="padding: 28px; display: none;">
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B; margin: 0 0 18px;">Front desk &middot; Mon 18:00 &middot; who's free</p>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px; border: 1px solid #0A0A0A; box-shadow: inset 4px 0 0 #FF0800;">
+                    <div>
+                      <p style="font-size: 17px; font-weight: 600; margin: 0 0 4px;">Marta Okonjo</p>
+                      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6B6B; margin: 0;">Free Mon eve &middot; trained &middot; 11 shifts</p>
+                    </div>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 12px; color: #FFFFFF; background: #0A0A0A;">Best fit</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px; border: 1px solid #D6D6D6;">
+                    <div>
+                      <p style="font-size: 17px; font-weight: 600; margin: 0 0 4px;">Dev Raman</p>
+                      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6B6B; margin: 0;">Free Mon eve &middot; needs training</p>
+                    </div>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 12px; color: #6B6B6B; border: 1px solid #D6D6D6;">Maybe</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px; border: 1px solid #D6D6D6; opacity: .55;">
+                    <div>
+                      <p style="font-size: 17px; font-weight: 600; margin: 0 0 4px;">Ana Beltr&aacute;n</p>
+                      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6B6B; margin: 0;">Clashes with Tue 07:00</p>
+                    </div>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 12px; color: #6B6B6B; border: 1px solid #D6D6D6;">Clash</span>
+                  </div>
+                </div>
+              </div>
+
+              <div data-step="2" style="padding: 28px; display: none;">
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B; margin: 0 0 18px;">Confirm &middot; one tap, no email thread</p>
+                <div style="padding: 22px; border: 1px solid #0A0A0A; margin-bottom: 18px;">
+                  <p style="font-size: 22px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Assign Marta to Front desk?</p>
+                  <p style="font-size: 15px; line-height: 1.6; color: #4A4A4A; margin: 0 0 20px;">She gets a text, not an invite she has to accept. If she taps no, the shift reopens and the next best fit is notified automatically.</p>
+                  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; padding: 13px 24px; color: #FFFFFF; background: #FF0800;">Assign</span>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; padding: 13px 24px; color: #0A0A0A; border: 1px solid #0A0A0A;">Pick someone else</span>
+                  </div>
+                </div>
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6B6B; margin: 0;">Undo stays available for ten minutes. Nobody has ever needed it twice.</p>
+              </div>
+
+              <div data-step="3" style="padding: 28px; display: none;">
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B; margin: 0 0 18px;">Week filled</p>
+                <div style="padding: 26px; border: 1px solid #0A0A0A; background: #0A0A0A; margin-bottom: 18px;">
+                  <p style="font-size: 48px; font-weight: 800; letter-spacing: -.035em; margin: 0 0 6px; color: #FFFFFF;">100%<span style="color: #FF0800;">.</span></p>
+                  <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #B5B5B5; margin: 0;">12 of 12 shifts covered &middot; 0 emails sent</p>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px; border: 1px solid #D6D6D6;">
+                    <p style="font-size: 17px; font-weight: 600; margin: 0;">Front desk &middot; Mon 18:00</p>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 12px; color: #6B6B6B; border: 1px solid #D6D6D6;">Filled</span>
+                  </div>
+                  <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6B6B; margin: 4px 0 0;">That is the whole product. Four screens, one job, no dashboard nobody asked for.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="padding: 28px; display: flex; flex-direction: column; gap: 22px;">
+              <div>
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #FF0800; margin: 0 0 8px;">Step <span data-stepnum="1">1</span> of 4</p>
+                <div style="height: 4px; background: #EDEDED;">
+                  <div data-progress="1" style="height: 4px; width: 25%; background: #FF0800; transition: width .25s ease;"></div>
+                </div>
+              </div>
+              <div style="flex: 1;">
+                <h3 data-title="1" style="font-size: 24px; font-weight: 700; letter-spacing: -.02em; margin: 0 0 12px;">Find the gap</h3>
+                <p data-caption="1" style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0;">One glance shows what is unfilled. No spreadsheet, no colour legend to memorise &mdash; the only thing in red is the thing that needs you.</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; gap: 8px;">
+                  <button data-prev="1" style="flex: 1; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; padding: 14px 10px; color: #0A0A0A; background: #FFFFFF; border: 1px solid #0A0A0A; cursor: pointer;" style-hover="color: #FFFFFF; background: #0A0A0A;">&larr; Back</button>
+                  <button data-next="1" style="flex: 2; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; padding: 14px 10px; color: #FFFFFF; background: #FF0800; border: 1px solid #FF0800; cursor: pointer;" style-hover="color: #FFFFFF; background: #0A0A0A; border-color: #0A0A0A;">Next step &rarr;</button>
+                </div>
+                <div style="display: flex; gap: 6px;">
+                  <button data-dot="0" style="flex: 1; height: 30px; border: 1px solid #0A0A0A; background: #FF0800; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #FFFFFF;">1</button>
+                  <button data-dot="1" style="flex: 1; height: 30px; border: 1px solid #0A0A0A; background: #FFFFFF; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #0A0A0A;">2</button>
+                  <button data-dot="2" style="flex: 1; height: 30px; border: 1px solid #0A0A0A; background: #FFFFFF; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #0A0A0A;">3</button>
+                  <button data-dot="3" style="flex: 1; height: 30px; border: 1px solid #0A0A0A; background: #FFFFFF; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #0A0A0A;">4</button>
+                </div>
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .1em; color: #6B6B6B; margin: 4px 0 0;">Nothing here is a video. You are clicking the real flow.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" data-screen-label="Story — the journey" style="scroll-margin-top: 62px; border-bottom: 1px solid #0A0A0A; background: rgba(255,255,255,.55);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 84px 40px 0;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 22px;">02 &mdash; The journey</p>
+        <h2 style="font-size: clamp(36px, 5.6vw, 78px); font-weight: 700; line-height: .96; letter-spacing: -.03em; text-transform: uppercase; margin: 0 0 24px;">Three years,<br />one argument</h2>
+        <p style="max-width: 560px; font-size: 18px; line-height: 1.65; color: #4A4A4A; margin: 0 0 64px;">The version-one screenshots are deliberately still here. They are the most persuasive thing I own.</p>
+      </div>
+      <div style="border-top: 1px solid #0A0A0A;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); border-bottom: 1px solid #0A0A0A;">
+          <div style="padding: 34px 40px; border-right: 1px solid #0A0A0A;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #FF0800; margin: 0 0 14px;">2023 &mdash; THE CRASH</p>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 12px;">A booking tool, down in nine minutes</h3>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0;">Sixty concurrent users found every assumption I had made. I rebuilt it three times that year and learned more than in a degree.</p>
+          </div>
+          <div style="aspect-ratio: 16 / 10; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 24px; line-height: 2;">screenshot &mdash; version one<br />leave the bad UI visible</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); border-bottom: 1px solid #0A0A0A;">
+          <div style="aspect-ratio: 16 / 10; border-right: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 24px; line-height: 2;">photo &mdash; the room / the team<br />real camera, real people</span>
+          </div>
+          <div style="padding: 34px 40px;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #6B6B6B; margin: 0 0 14px;">2024 &mdash; THE HABIT</p>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 12px;">Ship small, ship often, watch it run</h3>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0;">A studio internship, three client launches, and the component library that outlived all of them.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+          <div style="padding: 34px 40px; border-right: 1px solid #0A0A0A;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #6B6B6B; margin: 0 0 14px;">2025 &mdash; NOW</p>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 12px;">Owning the design-to-ship loop</h3>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0;">Four-person team, my hands on both ends. Led the onboarding rewrite that cut drop-off by a third.</p>
+          </div>
+          <div style="aspect-ratio: 16 / 10; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 24px; line-height: 2;">screenshot &mdash; the same screen today<br />match the crop above</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position: relative; border-top: 1px solid #0A0A0A;">
+        <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 110px 40px 120px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #4A4A4A; margin: 0 0 30px;">An aside &mdash; the other thing I make</p>
+          <p style="font-size: clamp(26px, 4vw, 54px); font-weight: 700; line-height: 1.1; letter-spacing: -.03em; color: #0A0A0A; margin: 0 0 22px; max-width: 16ch; text-wrap: pretty;">I paint the things I can't debug<span style="color: #FF0800;">.</span></p>
+          <p style="font-size: clamp(15px, 1.6vw, 19px); line-height: 1.7; color: #2A2A2A; margin: 0; max-width: 46ch;">Watercolour, mostly botanical, mostly on Sundays. It is where the patience for the other work comes from.</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #4A4A4A; margin: 34px 0 0;">Pomegranate &amp; lavender study &mdash; watercolour on cotton rag, 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" data-screen-label="Work" style="scroll-margin-top: 62px; border-bottom: 1px solid #0A0A0A; background: rgba(255,255,255,.55);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 84px 40px 52px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 22px;">03 &mdash; Work</p>
+        <h2 style="font-size: clamp(36px, 5.6vw, 78px); font-weight: 700; line-height: .96; letter-spacing: -.03em; text-transform: uppercase; margin: 0 0 24px;">Six things<br />that shipped</h2>
+        <p style="max-width: 540px; font-size: 18px; line-height: 1.65; color: #4A4A4A; margin: 0;">Each one names the number it moved. Case studies on request &mdash; or drive the sandbox above.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); border-top: 1px solid #0A0A0A;">
+        <article style="padding: 28px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 20px; line-height: 2;">real screenshot &mdash; 1600&times;1200<br />on a real device if you can</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">01</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Tidepool</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 14px;">A reading app built around restraint. Rewrote the sync layer twice until it stopped lying about what was saved.</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #0A0A0A; margin: 0 0 18px;">&rarr; 4.7&#9733; &middot; 2,100 installs, zero paid</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;"><span>Swift</span><span>CloudKit</span><span>2025</span></div>
+        </article>
+        <article style="padding: 28px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B;">real screenshot &mdash; 1600&times;1200</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">02</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Nightshift</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 14px;">Scheduling for volunteer crews. The one you just drove at the top of this page.</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #0A0A0A; margin: 0 0 18px;">&rarr; 400 shifts filled in month one</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;"><span>React</span><span>Postgres</span><span>2025</span></div>
+        </article>
+        <article style="padding: 28px; border-bottom: 1px solid #0A0A0A;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B;">real screenshot &mdash; 1600&times;1200</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">03</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Constellate</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 14px;">Notes rendered as a walkable star map. Built in 24 hours, still gets emails about it.</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #0A0A0A; margin: 0 0 18px;">&rarr; Best design, 300-person hackathon</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;"><span>Canvas</span><span>WebGL</span><span>2024</span></div>
+        </article>
+        <article style="padding: 28px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 20px; line-height: 2;">photo &mdash; the actual rig<br />on your actual counter</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">04</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Sourdough OS</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 14px;">Sensors watching a starter rise, plotted like telemetry. Absurd, and it works.</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #0A0A0A; margin: 0 0 18px;">&rarr; 18 months uptime, 1 flood</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;"><span>Arduino</span><span>Python</span><span>2024</span></div>
+        </article>
+        <article style="padding: 28px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B;">real screenshot &mdash; 1600&times;1200</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">05</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Fieldnotes</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 14px;">Offline-first journal for long runs. Conflict resolution taught me humility.</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #0A0A0A; margin: 0 0 18px;">&rarr; 0 lost entries in 14 months</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;"><span>TypeScript</span><span>SQLite</span><span>2023</span></div>
+        </article>
+        <article style="padding: 28px; border-bottom: 1px solid #0A0A0A;" style-hover="background: #FAFAFA;">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid #0A0A0A; background-image: repeating-linear-gradient(135deg, #EDEDED 0 12px, #FFFFFF 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; text-align: center; padding: 0 20px; line-height: 2;">photo &mdash; the printed zine<br />held in a hand, natural light</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin: 24px 0 10px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #FF0800;">06</span>
+            <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0;">Paper Radio</h3>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: #4A4A4A; margin: 0 0 14px;">A printed zine that plays music. Layout in code, audio behind the codes.</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #0A0A0A; margin: 0 0 18px;">&rarr; 250 copies, sold out in 3 weeks</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6B6B6B;"><span>Print</span><span>Web Audio</span><span>2023</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="path" data-screen-label="Path" style="scroll-margin-top: 62px; border-bottom: 1px solid #0A0A0A; background: rgba(255,255,255,.55);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 84px 40px 88px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 22px;">04 &mdash; Path</p>
+        <h2 style="font-size: clamp(36px, 5.6vw, 78px); font-weight: 700; line-height: .96; letter-spacing: -.03em; text-transform: uppercase; margin: 0 0 56px;">Experience<br />&amp; awards</h2>
+        <div style="border-top: 1px solid #0A0A0A; margin-bottom: 72px;">
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding: 30px 0; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #FF0800; margin: 6px 0 0;">2025 &mdash; NOW</p>
+            <div>
+              <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Product Engineer &middot; Company</h3>
+              <p style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0; max-width: 620px;">Own the design-to-ship loop on a four-person team. Led the onboarding rewrite that cut drop-off by a third.</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding: 30px 0; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #6B6B6B; margin: 6px 0 0;">2024</p>
+            <div>
+              <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Design Intern &middot; Studio</h3>
+              <p style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0; max-width: 620px;">Prototyped interaction concepts across three client launches; built the team's component library.</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding: 30px 0; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #6B6B6B; margin: 6px 0 0;">2023</p>
+            <div>
+              <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Freelance &middot; Various</h3>
+              <p style="font-size: 16px; line-height: 1.7; color: #4A4A4A; margin: 0; max-width: 620px;">Sites and identity systems for five small businesses and one very demanding cat rescue.</p>
+            </div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border-top: 1px solid #0A0A0A; border-left: 1px solid #0A0A0A; margin-bottom: 44px;">
+          <div style="padding: 28px 26px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-size: 21px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Best Design</p>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0;">24-hour hackathon &middot; 2024</p>
+          </div>
+          <div style="padding: 28px 26px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A; background: #FF0800;">
+            <p style="font-size: 21px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px; color: #FFFFFF;">First Overall</p>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.85); margin: 0;">University hackathon &middot; 2024</p>
+          </div>
+          <div style="padding: 28px 26px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-size: 21px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">Hardware Prize</p>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0;">Maker weekend &middot; 2023</p>
+          </div>
+          <div style="padding: 28px 26px; border-right: 1px solid #0A0A0A; border-bottom: 1px solid #0A0A0A;">
+            <p style="font-size: 21px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px;">People's Choice</p>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0;">Design jam &middot; 2023</p>
+          </div>
+        </div>
+        <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; border-bottom: 2px solid #FF0800; padding-bottom: 4px;">Download r&eacute;sum&eacute; &mdash; PDF, 84kb</a>
+      </div>
+    </section>
+
+    <section id="contact" data-screen-label="Contact — proof beside the ask" style="scroll-margin-top: 62px; background: #0A0A0A;">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 88px 40px 80px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #FF0800; margin: 0 0 26px;">05 &mdash; Hire me</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: start;">
+          <div>
+            <h2 style="font-size: clamp(36px, 6vw, 84px); font-weight: 700; line-height: .94; letter-spacing: -.035em; text-transform: uppercase; margin: 0 0 30px; color: #FFFFFF;">Let's make<br />something<span style="color: #FF0800;">.</span></h2>
+            <p style="max-width: 480px; font-size: 18px; line-height: 1.7; color: #B5B5B5; margin: 0 0 36px;">Full-time roles, contract work, or a hard problem you want a second opinion on. No form, no calendar link &mdash; just email me and a person answers.</p>
+            <a href="mailto:you@example.com" style="display: inline-block; font-size: clamp(22px, 3.4vw, 42px); font-weight: 600; letter-spacing: -.02em; padding: 20px 40px; color: #FFFFFF; background: #FF0800;" style-hover="color: #0A0A0A; background: #FFFFFF;">you@example.com</a>
+            <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 40px;">
+              <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;" style-hover="color: #FF0800;">GitHub</a>
+              <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;" style-hover="color: #FF0800;">LinkedIn</a>
+              <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;" style-hover="color: #FF0800;">Read.cv</a>
+            </div>
+          </div>
+
+          <div style="border: 1px solid #2A2A2A;">
+            <div style="padding: 22px 24px; border-bottom: 1px solid #2A2A2A;">
+              <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #FF0800; margin: 0 0 14px;">What working with me is like</p>
+              <p style="font-size: 17px; line-height: 1.65; color: #FFFFFF; margin: 0 0 12px;">&ldquo;Shipped the rewrite two weeks early and caught three edge cases our whole team had missed. Ask about the migration &mdash; it was flawless.&rdquo;</p>
+              <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #6B6B6B; margin: 0;">Name Surname &mdash; Eng Manager, Company</p>
+            </div>
+            <div style="padding: 22px 24px; border-bottom: 1px solid #2A2A2A;">
+              <p style="font-size: 17px; line-height: 1.65; color: #FFFFFF; margin: 0 0 12px;">&ldquo;The only designer I've worked with who reads the pull request.&rdquo;</p>
+              <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #6B6B6B; margin: 0;">Name Surname &mdash; Founder, Studio</p>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+              <div style="padding: 20px 24px; border-right: 1px solid #2A2A2A; border-bottom: 1px solid #2A2A2A;">
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0 0 8px;">Reply time</p>
+                <p style="font-size: 20px; font-weight: 600; color: #FFFFFF; margin: 0;">&lt; 24 hours</p>
+              </div>
+              <div style="padding: 20px 24px; border-bottom: 1px solid #2A2A2A;">
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0 0 8px;">Available</p>
+                <p style="font-size: 20px; font-weight: 600; color: #FFFFFF; margin: 0;">From Oct</p>
+              </div>
+              <div style="padding: 20px 24px; border-right: 1px solid #2A2A2A;">
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0 0 8px;">Based in</p>
+                <p style="font-size: 20px; font-weight: 600; color: #FFFFFF; margin: 0;">Your City</p>
+              </div>
+              <div style="padding: 20px 24px;">
+                <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6B6B6B; margin: 0 0 8px;">Remote</p>
+                <p style="font-size: 20px; font-weight: 600; color: #FFFFFF; margin: 0;">Happily</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 24px 40px; background: #0A0A0A; border-top: 1px solid #2A2A2A;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">Built by hand &mdash; every photo is mine</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #6B6B6B;">&copy; 2026</span>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  STEPS = [
+    { t: "Find the gap", c: "One glance shows what is unfilled. No spreadsheet, no colour legend to memorise \u2014 the only thing in red is the thing that needs you." },
+    { t: "See who's free", c: "Availability, training and clashes resolved before you ask anyone. The best fit is ranked, not searched for." },
+    { t: "Assign in one tap", c: "A text, not an invite. Decline reopens the shift and notifies the next best fit automatically \u2014 no thread, no chasing." },
+    { t: "Week closed", c: "Twelve of twelve covered, zero emails sent. Four screens, one job. This is where the four hundred shifts came from." },
+  ];
+
+  step = 0;
+
+  go(id) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      const el = document.getElementById(id);
+      if (!el) return;
+      let sc = this.scrollParent();
+      const isDoc = sc === window;
+      if (isDoc) sc = document.scrollingElement || document.documentElement;
+      const nav = document.querySelector("nav");
+      const off = (nav ? nav.getBoundingClientRect().height : 0) + 8;
+      const rel = isDoc ? (sc.scrollTop || 0) : sc.scrollTop - sc.getBoundingClientRect().top;
+      const top = Math.max(0, el.getBoundingClientRect().top + rel - off);
+      if (typeof sc.scrollTo === "function") sc.scrollTo({ top: top, behavior: "smooth" });
+      const before = sc.scrollTop;
+      setTimeout(() => { if (sc.scrollTop === before) sc.scrollTop = top; }, 250);
+    };
+  }
+
+  scrollParent() {
+    let el = document.querySelector("main");
+    while (el && el.parentElement) {
+      el = el.parentElement;
+      const oy = getComputedStyle(el).overflowY;
+      if ((oy === "auto" || oy === "scroll") && el.scrollHeight > el.clientHeight) return el;
+    }
+    return window;
+  }
+
+  setStep(n) {
+    const max = this.STEPS.length - 1;
+    this.step = Math.max(0, Math.min(max, n));
+    this.paint();
+  }
+
+  paint() {
+    const n = this.step;
+    document.querySelectorAll("[data-step]").forEach((el) => {
+      el.style.display = Number(el.getAttribute("data-step")) === n ? "" : "none";
+    });
+    document.querySelectorAll("[data-dot]").forEach((el) => {
+      const on = Number(el.getAttribute("data-dot")) === n;
+      el.style.background = on ? "#FF0800" : "#FFFFFF";
+      el.style.color = on ? "#FFFFFF" : "#0A0A0A";
+    });
+    const num = document.querySelector("[data-stepnum]");
+    if (num) num.textContent = String(n + 1);
+    const bar = document.querySelector("[data-progress]");
+    if (bar) bar.style.width = ((n + 1) / this.STEPS.length) * 100 + "%";
+    const title = document.querySelector("[data-title]");
+    if (title) title.textContent = this.STEPS[n].t;
+    const cap = document.querySelector("[data-caption]");
+    if (cap) cap.textContent = this.STEPS[n].c;
+    const prev = document.querySelector("[data-prev]");
+    if (prev) { prev.style.opacity = n === 0 ? ".35" : "1"; prev.style.pointerEvents = n === 0 ? "none" : ""; }
+    const next = document.querySelector("[data-next]");
+    if (next) next.textContent = n === this.STEPS.length - 1 ? "Start over \u21BB" : "Next step \u2192";
+  }
+
+  componentDidMount() {
+    this._click = (e) => {
+      const t = e.target.closest("[data-next],[data-prev],[data-dot]");
+      if (!t) return;
+      if (t.hasAttribute("data-next")) this.setStep(this.step === this.STEPS.length - 1 ? 0 : this.step + 1);
+      else if (t.hasAttribute("data-prev")) this.setStep(this.step - 1);
+      else this.setStep(Number(t.getAttribute("data-dot")));
+    };
+    this._key = (e) => {
+      const tour = document.getElementById("try");
+      if (!tour) return;
+      const r = tour.getBoundingClientRect();
+      if (r.bottom < 120 || r.top > window.innerHeight - 120) return;
+      if (e.key === "ArrowRight") this.setStep(this.step + 1);
+      if (e.key === "ArrowLeft") this.setStep(this.step - 1);
+    };
+    document.addEventListener("click", this._click);
+    window.addEventListener("keydown", this._key);
+    this.paint();
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this._click);
+    window.removeEventListener("keydown", this._key);
+  }
+
+  renderVals() {
+    return {
+      goHome: this.go("home"),
+      goStory: this.go("story"),
+      goTry: this.go("try"),
+      goWork: this.go("work"),
+      goPath: this.go("path"),
+      goContact: this.go("contact"),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Mono:wght@400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #07060E; }
+  body { -webkit-font-smoothing: antialiased; }
+  a { color: #E7EEF6; text-decoration: none; }
+  a:hover { color: #6FD9FF; }
+  ::selection { background: #6FD9FF; color: #07060E; }
+  @keyframes snowfall { from { background-position: 0 0, 80px 0, 160px 0; } to { background-position: 40px 1200px, -60px 1600px, 100px 2000px; } }
+  @keyframes hover-drift { 0%, 100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(6px,-14px,0); } }
+  @keyframes lantern { 0%, 100% { transform: translate3d(0,0,0); opacity: .85; } 50% { transform: translate3d(-8px,-18px,0); opacity: 1; } }
+  @keyframes breathe { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+  @keyframes razor { 0% { transform: scaleX(0); opacity: 0; } 12% { opacity: 1; } 55% { transform: scaleX(1); opacity: .9; } 100% { transform: scaleX(1); opacity: 0; } }
+</style>
+</helmet>
+
+<div style="position: relative; min-height: 100vh; background: radial-gradient(140% 90% at 50% -10%, #1B1830 0%, #100E1E 42%, #07060E 100%); font-family: Jost, system-ui, sans-serif; font-weight: 300; color: #C6D6E6;">
+
+  <div style="position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(#E9F2FB 1px, transparent 1.6px), radial-gradient(#AFC4D8 1px, transparent 1.4px); background-size: 320px 300px, 480px 460px; background-position: 0 0, 140px 80px; opacity: .5;"></div>
+  <div style="position: absolute; top: 148px; right: 12%; width: 7px; height: 7px; border-radius: 50%; background: #B23A2E; box-shadow: 0 0 14px 3px rgba(178,58,46,.55); animation: breathe 9s ease-in-out infinite; pointer-events: none;"></div>
+
+  <div data-art="1" style="position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; opacity: .72; mask-image: linear-gradient(to bottom, rgba(0,0,0,.22) 0%, rgba(0,0,0,.28) 48%, #000 82%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.22) 0%, rgba(0,0,0,.28) 48%, #000 82%);">
+    <div style="position: absolute; top: -18%; left: -12%; width: 70%; height: 80%; border-radius: 50%; filter: blur(90px); background: radial-gradient(circle, rgba(150,190,225,.28) 0%, rgba(90,130,180,.12) 45%, transparent 72%);"></div>
+    <div style="position: absolute; top: 6%; right: -14%; width: 60%; height: 70%; border-radius: 50%; filter: blur(100px); background: radial-gradient(circle, rgba(240,183,120,.20) 0%, rgba(190,130,80,.09) 46%, transparent 74%);"></div>
+    <div style="position: absolute; bottom: 4%; left: 34%; width: 26%; height: 26%; border-radius: 50%; filter: blur(70px); background: radial-gradient(circle, rgba(120,14,32,.30) 0%, rgba(60,6,18,.16) 48%, transparent 76%);"></div>
+
+    <div style="position: absolute; left: 50%; top: 76%; width: 190vw; height: 150vh; transform: translate(-50%, 0) perspective(900px) rotateX(74deg); transform-origin: 50% 0; mask-image: linear-gradient(to bottom, transparent 0%, #000 22%); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 100%; background: linear-gradient(rgba(196,222,244,.16), rgba(120,158,190,.06) 40%, transparent 78%);"></div>
+      <div style="position: absolute; left: 50%; top: 2%; width: 46vw; height: 46vw; transform: translateX(-50%); border-radius: 50%; border: 1px solid rgba(214,232,246,.20);"></div>
+      <div style="position: absolute; left: 50%; top: 2%; width: 74vw; height: 74vw; transform: translate(-50%, -18%); border-radius: 50%; border: 1px solid rgba(214,232,246,.13);"></div>
+      <div style="position: absolute; left: 50%; top: 2%; width: 108vw; height: 108vw; transform: translate(-50%, -34%); border-radius: 50%; border: 1px solid rgba(214,232,246,.08);"></div>
+      <div style="position: absolute; left: 50%; top: 2%; width: 26vw; height: 26vw; transform: translate(-50%, 12%); border-radius: 50%; background: radial-gradient(circle at 50% 40%, rgba(226,240,252,.22) 0%, rgba(140,180,215,.10) 50%, transparent 78%); box-shadow: 0 0 80px rgba(196,222,244,.14);"></div>
+    </div>
+
+    <div style="position: absolute; left: 0; right: 0; top: 80%; height: 90px; filter: blur(3px); opacity: .5; background-image: repeating-linear-gradient(90deg, rgba(12,16,28,.85) 0 6px, transparent 6px 11px, rgba(20,26,42,.7) 11px 15px, transparent 15px 24px); mask-image: linear-gradient(transparent, #000 40%, #000 70%, transparent); -webkit-mask-image: linear-gradient(transparent, #000 40%, #000 70%, transparent);"></div>
+    <div style="position: absolute; left: 0; right: 0; top: 74%; height: 60px; filter: blur(5px); opacity: .35; background-image: repeating-linear-gradient(90deg, rgba(14,18,32,.8) 0 4px, transparent 4px 9px); mask-image: linear-gradient(transparent, #000 50%, transparent); -webkit-mask-image: linear-gradient(transparent, #000 50%, transparent);"></div>
+
+    <div data-float="1" style="position: absolute; left: 6%; top: 66%; width: 66px; height: 230px; border-radius: 40% 40% 12% 12%; filter: blur(7px); background: linear-gradient(180deg, rgba(8,10,20,.9), rgba(14,18,32,.55)); animation: hover-drift 34s ease-in-out infinite;"></div>
+    <div data-float="1" style="position: absolute; right: 7%; top: 68%; width: 72px; height: 220px; border-radius: 40% 40% 12% 12%; filter: blur(8px); background: linear-gradient(180deg, rgba(6,8,16,.92), rgba(12,16,28,.5)); animation: hover-drift 40s ease-in-out infinite;"></div>
+
+    <div style="position: absolute; left: 13%; top: 70%; width: 118px; height: 190px; transform: rotate(-14deg); background: linear-gradient(160deg, rgba(111,217,255,.30), rgba(76,201,245,.14)); box-shadow: 0 0 70px 18px rgba(111,217,255,.16), inset 0 0 40px rgba(255,255,255,.22); filter: blur(1px); animation: breathe 11s ease-in-out infinite;"></div>
+    <div style="position: absolute; left: 18%; top: 86%; width: 200px; height: 1px; transform: rotate(-24deg); transform-origin: left; background: linear-gradient(90deg, rgba(226,240,252,.9), transparent); box-shadow: 0 0 12px rgba(226,240,252,.6); animation: razor 9s ease-out infinite;"></div>
+    <div style="position: absolute; right: 16%; top: 82%; width: 180px; height: 1px; transform: rotate(18deg); transform-origin: right; background: linear-gradient(270deg, rgba(226,240,252,.85), transparent); box-shadow: 0 0 12px rgba(226,240,252,.55); animation: razor 9s ease-out 4.5s infinite;"></div>
+  </div>
+
+  <div data-snow="1" style="position: absolute; inset: 0; pointer-events: none; opacity: .5; background-image: radial-gradient(rgba(255,255,255,.9) 1.2px, transparent 1.6px), radial-gradient(rgba(224,238,250,.7) 1.6px, transparent 2px), radial-gradient(rgba(255,246,232,.5) 2.2px, transparent 2.6px); background-size: 190px 240px, 260px 320px, 420px 500px; animation: snowfall 90s linear infinite;"></div>
+
+  <div data-float="1" style="position: absolute; top: 200px; left: 6%; width: 220px; height: 220px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(240,183,120,.30) 0%, rgba(201,138,85,.12) 42%, transparent 70%); animation: lantern 22s ease-in-out infinite;"></div>
+  <div data-float="1" style="position: absolute; top: 620px; right: 4%; width: 300px; height: 300px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(240,183,120,.22) 0%, rgba(201,138,85,.09) 40%, transparent 70%); animation: lantern 28s ease-in-out infinite;"></div>
+  <div data-float="1" style="position: absolute; top: 1500px; left: 12%; width: 260px; height: 260px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(240,183,120,.18) 0%, rgba(201,138,85,.07) 40%, transparent 70%); animation: lantern 25s ease-in-out infinite;"></div>
+
+  <nav style="position: sticky; top: 0; z-index: 40; display: flex; justify-content: center; padding: 22px 16px 0;">
+    <div style="display: flex; align-items: center; gap: 2px; flex-wrap: wrap; justify-content: center; padding: 13px 22px; background: linear-gradient(rgba(20,24,40,.72), rgba(12,14,26,.62)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(198,214,230,.10); border-top: 1px solid rgba(111,217,255,.55); box-shadow: 0 -1px 18px rgba(111,217,255,.22), 0 18px 60px rgba(7,6,14,.6);">
+      <a href="#home" onClick="{{ goHome }}" style="font-family: Jost, sans-serif; font-weight: 400; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: #DCE7F2; padding: 8px 16px;" style-hover="color: #6FD9FF; background: rgba(111,217,255,.08);">Home</a>
+      <a href="#work" onClick="{{ goWork }}" style="font-family: Jost, sans-serif; font-weight: 400; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: #DCE7F2; padding: 8px 16px;" style-hover="color: #6FD9FF; background: rgba(111,217,255,.08);">Work</a>
+      <a href="#about" onClick="{{ goAbout }}" style="font-family: Jost, sans-serif; font-weight: 400; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: #DCE7F2; padding: 8px 16px;" style-hover="color: #6FD9FF; background: rgba(111,217,255,.08);">About</a>
+      <a href="#path" onClick="{{ goPath }}" style="font-family: Jost, sans-serif; font-weight: 400; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: #DCE7F2; padding: 8px 16px;" style-hover="color: #6FD9FF; background: rgba(111,217,255,.08);">Path</a>
+      <a href="#gallery" onClick="{{ goGallery }}" style="font-family: Jost, sans-serif; font-weight: 400; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: #DCE7F2; padding: 8px 16px;" style-hover="color: #6FD9FF; background: rgba(111,217,255,.08);">Gallery</a>
+      <a href="#contact" onClick="{{ goContact }}" style="font-family: Jost, sans-serif; font-weight: 400; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: #DCE7F2; padding: 8px 16px;" style-hover="color: #6FD9FF; background: rgba(111,217,255,.08);">Contact</a>
+    </div>
+  </nav>
+
+  <main style="position: relative; z-index: 10; max-width: 1180px; margin: 0 auto; padding: 0 32px 180px;">
+
+    <section id="home" data-screen-label="Home" style="position: relative; scroll-margin-top: 120px; padding: 40px 0 120px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <div style="position: absolute; top: 50%; left: 50%; width: 1240px; height: 1240px; transform: translate(-50%, -50%); pointer-events: none;">
+        <div style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(198,214,230,.07);"></div>
+        <div style="position: absolute; inset: 150px; border-radius: 50%; border: 1px solid rgba(198,214,230,.09);"></div>
+        <div style="position: absolute; inset: 300px; border-radius: 50%; border: 1px solid rgba(198,214,230,.12);"></div>
+        <div style="position: absolute; inset: 430px; border-radius: 50%; border: 1px solid rgba(111,217,255,.16); box-shadow: inset 0 0 60px rgba(111,217,255,.06);"></div>
+        <div style="position: absolute; inset: 520px; border-radius: 50%; background: radial-gradient(circle at 50% 30%, rgba(214,232,246,.16) 0%, rgba(120,158,190,.07) 45%, rgba(9,10,20,0) 72%); box-shadow: inset 0 20px 60px rgba(255,255,255,.05);"></div>
+      </div>
+
+      <p style="position: relative; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .42em; text-transform: uppercase; color: #7FA0BC; margin: 90px 0 40px;">Portfolio &nbsp;/&nbsp; MMXXVI</p>
+      <h1 style="position: relative; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(56px, 10vw, 148px); line-height: .92; letter-spacing: .01em; margin: 0; color: #F2F7FC; text-shadow: 0 0 90px rgba(240,183,120,.22), 0 0 30px rgba(214,232,246,.18);">Your Name<br /><em style="font-style: italic; color: #C6D6E6;">Here</em></h1>
+      <div style="position: relative; width: 180px; height: 1px; margin: 46px 0 34px; background: linear-gradient(90deg, transparent, rgba(111,217,255,.85), transparent); box-shadow: 0 0 16px rgba(111,217,255,.6);"></div>
+      <p style="position: relative; max-width: 560px; font-size: 20px; line-height: 1.75; color: #AEC2D6; margin: 0; text-wrap: pretty;">Designer and engineer. I make interfaces that hold their composure under pressure &mdash; quiet on the surface, exact underneath.</p>
+      <div style="position: relative; display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; margin-top: 52px;">
+        <a href="#work" onClick="{{ goWork }}" style="font-family: Jost, sans-serif; font-size: 13px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; padding: 17px 38px; color: #06121B; background: linear-gradient(#8FE3FF, #4CC9F5); box-shadow: 0 0 34px rgba(111,217,255,.45), inset 0 1px 0 rgba(255,255,255,.6);" style-hover="color: #06121B; background: linear-gradient(#AEEBFF, #6FD9FF);">Enter the work</a>
+        <a href="#contact" onClick="{{ goContact }}" style="font-family: Jost, sans-serif; font-size: 13px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; padding: 17px 38px; color: #DCE7F2; border: 1px solid rgba(198,214,230,.28);" style-hover="color: #6FD9FF; border-color: rgba(111,217,255,.6); background: rgba(111,217,255,.06);">Contact</a>
+      </div>
+
+      <div data-float="1" style="position: relative; width: 100%; margin: 108px 0 0; animation: hover-drift 26s ease-in-out infinite;">
+        <div style="position: relative; width: 100%; aspect-ratio: 21 / 9; border: 1px solid rgba(198,214,230,.16); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 14px, transparent 14px 28px); display: flex; align-items: center; justify-content: center; box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 40px 90px rgba(7,6,14,.7);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(174,194,214,.8); text-align: center; padding: 0 24px; line-height: 2;">hero image &mdash; ultrawide<br />frozen lake / floating lights &mdash; 2800&times;1200</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" data-screen-label="Work" style="scroll-margin-top: 120px; padding: 90px 0 70px;">
+      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .42em; text-transform: uppercase; color: #6FD9FF; margin: 0 0 22px;">I &nbsp;&mdash;&nbsp; Work</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(40px, 6.4vw, 88px); line-height: 1.02; margin: 0 0 24px; color: #F2F7FC;">Selected <em style="font-style: italic; color: #AEC2D6;">work</em></h2>
+      <p style="max-width: 560px; font-size: 18px; line-height: 1.75; color: #93A9BF; margin: 0 0 72px;">Six projects, each one a different kind of pressure. Case studies on request.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1px; background: rgba(198,214,230,.12);">
+        <article style="padding: 26px; background: linear-gradient(rgba(18,22,38,.86), rgba(10,12,22,.86));" style-hover="background: linear-gradient(rgba(26,34,54,.92), rgba(12,16,30,.92));">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">project shot &mdash; 1600&times;1200</span>
+          </div>
+          <div style="height: 1px; margin: 24px 0 20px; background: linear-gradient(90deg, rgba(111,217,255,.7), transparent); transform-origin: left; animation: razor 7s ease-out infinite;"></div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 30px; margin: 0 0 10px; color: #F2F7FC;">Tidepool</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #93A9BF; margin: 0 0 20px;">A reading app built around restraint. Sync layer rewritten twice until it stopped lying.</p>
+          <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #7FA0BC;">
+            <span>Swift</span><span>CloudKit</span><span>2025</span>
+          </div>
+        </article>
+
+        <article style="padding: 26px; background: linear-gradient(rgba(18,22,38,.86), rgba(10,12,22,.86));" style-hover="background: linear-gradient(rgba(26,34,54,.92), rgba(12,16,30,.92));">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">project shot &mdash; 1600&times;1200</span>
+          </div>
+          <div style="height: 1px; margin: 24px 0 20px; background: linear-gradient(90deg, rgba(111,217,255,.7), transparent); transform-origin: left; animation: razor 7s ease-out 1.1s infinite;"></div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 30px; margin: 0 0 10px; color: #F2F7FC;">Nightshift</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #93A9BF; margin: 0 0 20px;">Scheduling for volunteer crews. Four hundred shifts filled in its first month.</p>
+          <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #7FA0BC;">
+            <span>React</span><span>Postgres</span><span>2025</span>
+          </div>
+        </article>
+
+        <article style="padding: 26px; background: linear-gradient(rgba(18,22,38,.86), rgba(10,12,22,.86));" style-hover="background: linear-gradient(rgba(26,34,54,.92), rgba(12,16,30,.92));">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">project shot &mdash; 1600&times;1200</span>
+          </div>
+          <div style="height: 1px; margin: 24px 0 20px; background: linear-gradient(90deg, rgba(111,217,255,.7), transparent); transform-origin: left; animation: razor 7s ease-out 2.2s infinite;"></div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 30px; margin: 0 0 10px; color: #F2F7FC;">Constellate</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #93A9BF; margin: 0 0 20px;">Notes rendered as a walkable star map. Won best design at a 24-hour build.</p>
+          <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #7FA0BC;">
+            <span>Canvas</span><span>WebGL</span><span>2024</span>
+          </div>
+        </article>
+
+        <article style="padding: 26px; background: linear-gradient(rgba(18,22,38,.86), rgba(10,12,22,.86));" style-hover="background: linear-gradient(rgba(26,34,54,.92), rgba(12,16,30,.92));">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">project shot &mdash; 1600&times;1200</span>
+          </div>
+          <div style="height: 1px; margin: 24px 0 20px; background: linear-gradient(90deg, rgba(111,217,255,.7), transparent); transform-origin: left; animation: razor 7s ease-out 3.3s infinite;"></div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 30px; margin: 0 0 10px; color: #F2F7FC;">Sourdough OS</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #93A9BF; margin: 0 0 20px;">Sensors watching a starter rise, plotted like telemetry. Still running.</p>
+          <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #7FA0BC;">
+            <span>Arduino</span><span>Python</span><span>2024</span>
+          </div>
+        </article>
+
+        <article style="padding: 26px; background: linear-gradient(rgba(18,22,38,.86), rgba(10,12,22,.86));" style-hover="background: linear-gradient(rgba(26,34,54,.92), rgba(12,16,30,.92));">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">project shot &mdash; 1600&times;1200</span>
+          </div>
+          <div style="height: 1px; margin: 24px 0 20px; background: linear-gradient(90deg, rgba(111,217,255,.7), transparent); transform-origin: left; animation: razor 7s ease-out 4.4s infinite;"></div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 30px; margin: 0 0 10px; color: #F2F7FC;">Fieldnotes</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #93A9BF; margin: 0 0 20px;">Offline-first journal for long runs. Conflict resolution taught me humility.</p>
+          <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #7FA0BC;">
+            <span>TypeScript</span><span>SQLite</span><span>2023</span>
+          </div>
+        </article>
+
+        <article style="padding: 26px; background: linear-gradient(rgba(18,22,38,.86), rgba(10,12,22,.86));" style-hover="background: linear-gradient(rgba(26,34,54,.92), rgba(12,16,30,.92));">
+          <div style="aspect-ratio: 4 / 3; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">project shot &mdash; 1600&times;1200</span>
+          </div>
+          <div style="height: 1px; margin: 24px 0 20px; background: linear-gradient(90deg, rgba(111,217,255,.7), transparent); transform-origin: left; animation: razor 7s ease-out 5.5s infinite;"></div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 30px; margin: 0 0 10px; color: #F2F7FC;">Paper Radio</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #93A9BF; margin: 0 0 20px;">A printed zine that plays music. Layout in code, audio behind the codes.</p>
+          <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #7FA0BC;">
+            <span>Print</span><span>Web Audio</span><span>2023</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" data-screen-label="About" style="scroll-margin-top: 120px; padding: 90px 0 70px;">
+      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .42em; text-transform: uppercase; color: #6FD9FF; margin: 0 0 22px;">II &nbsp;&mdash;&nbsp; About</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(40px, 6.4vw, 88px); line-height: 1.02; margin: 0 0 72px; color: #F2F7FC;">The <em style="font-style: italic; color: #AEC2D6;">hand</em> behind it</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 64px; align-items: start;">
+        <div data-float="1" style="animation: hover-drift 30s ease-in-out infinite;">
+          <div style="aspect-ratio: 3 / 4; border: 1px solid rgba(198,214,230,.16); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 14px, transparent 14px 28px); display: flex; align-items: center; justify-content: center; box-shadow: 0 40px 90px rgba(7,6,14,.7);">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.8); text-align: center; padding: 0 24px; line-height: 2;">portrait &mdash; 1200&times;1600<br />cold light, dark ground</span>
+          </div>
+        </div>
+        <div>
+          <p style="font-size: 21px; line-height: 1.8; color: #C6D6E6; margin: 0 0 26px; text-wrap: pretty;">I work in the space where a rough idea starts behaving like a real thing. Interfaces, tools, systems that stay calm when the load arrives.</p>
+          <p style="font-size: 17px; line-height: 1.85; color: #8FA5BB; margin: 0 0 44px;">Trained in design, fluent in code, happiest at the seam between them. Off the clock: film photography, long distance running, and an unreasonable interest in cold weather.</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #6FD9FF; margin: 0 0 20px;">Instruments</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1px; background: rgba(198,214,230,.12); margin-bottom: 44px;">
+            <span style="padding: 14px 16px; background: rgba(12,14,26,.8); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #AEC2D6;">TypeScript</span>
+            <span style="padding: 14px 16px; background: rgba(12,14,26,.8); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #AEC2D6;">React</span>
+            <span style="padding: 14px 16px; background: rgba(12,14,26,.8); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #AEC2D6;">Figma</span>
+            <span style="padding: 14px 16px; background: rgba(12,14,26,.8); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #AEC2D6;">Swift</span>
+            <span style="padding: 14px 16px; background: rgba(12,14,26,.8); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #AEC2D6;">Python</span>
+            <span style="padding: 14px 16px; background: rgba(12,14,26,.8); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #AEC2D6;">Blender</span>
+          </div>
+          <a href="#contact" onClick="{{ goContact }}" style="display: inline-block; font-family: Jost, sans-serif; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; padding: 15px 34px; color: #DCE7F2; border: 1px solid rgba(198,214,230,.28);" style-hover="color: #6FD9FF; border-color: rgba(111,217,255,.6); background: rgba(111,217,255,.06);">Reach me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="path" data-screen-label="Path" style="scroll-margin-top: 120px; padding: 90px 0 70px;">
+      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .42em; text-transform: uppercase; color: #6FD9FF; margin: 0 0 22px;">III &nbsp;&mdash;&nbsp; Path</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(40px, 6.4vw, 88px); line-height: 1.02; margin: 0 0 72px; color: #F2F7FC;">Experience &amp; <em style="font-style: italic; color: #AEC2D6;">honours</em></h2>
+
+      <div style="display: flex; flex-direction: column; gap: 46px; border-left: 1px solid rgba(198,214,230,.14); padding-left: 42px; margin-bottom: 100px;">
+        <div style="position: relative;">
+          <div style="position: absolute; left: -47px; top: 10px; width: 9px; height: 9px; background: #6FD9FF; box-shadow: 0 0 18px 4px rgba(111,217,255,.45);"></div>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .28em; color: #6FD9FF; margin: 0 0 10px;">2025 &mdash; PRESENT</p>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 32px; color: #F2F7FC; margin: 0 0 10px;">Product Engineer &middot; Company</h3>
+          <p style="font-size: 16px; line-height: 1.8; color: #8FA5BB; margin: 0; max-width: 620px;">Own the design-to-ship loop on a four-person team. Led the onboarding rewrite that cut drop-off by a third.</p>
+        </div>
+        <div style="position: relative;">
+          <div style="position: absolute; left: -47px; top: 10px; width: 9px; height: 9px; background: rgba(198,214,230,.7); box-shadow: 0 0 14px 3px rgba(198,214,230,.25);"></div>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .28em; color: #7FA0BC; margin: 0 0 10px;">2024</p>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 32px; color: #F2F7FC; margin: 0 0 10px;">Design Intern &middot; Studio</h3>
+          <p style="font-size: 16px; line-height: 1.8; color: #8FA5BB; margin: 0; max-width: 620px;">Prototyped interaction concepts across three client launches; built the team's component library.</p>
+        </div>
+        <div style="position: relative;">
+          <div style="position: absolute; left: -47px; top: 10px; width: 9px; height: 9px; background: rgba(240,183,120,.85); box-shadow: 0 0 14px 3px rgba(240,183,120,.3);"></div>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .28em; color: #C98A55; margin: 0 0 10px;">2023</p>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 32px; color: #F2F7FC; margin: 0 0 10px;">Freelance &middot; Various</h3>
+          <p style="font-size: 16px; line-height: 1.8; color: #8FA5BB; margin: 0; max-width: 620px;">Sites and identity systems for five small businesses and one very demanding cat rescue.</p>
+        </div>
+      </div>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 38px; color: #F2F7FC; margin: 0 0 34px;">Honours</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: rgba(198,214,230,.12); margin-bottom: 52px;">
+        <div style="padding: 30px 26px; background: linear-gradient(rgba(18,22,38,.86), rgba(10,12,22,.86));">
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 25px; color: #F2F7FC; margin: 0 0 10px;">Best Design</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #7FA0BC; margin: 0;">24-hour hackathon &middot; 2024</p>
+        </div>
+        <div style="padding: 30px 26px; background: linear-gradient(rgba(18,22,38,.86), rgba(10,12,22,.86)); box-shadow: inset 3px 0 0 rgba(111,217,255,.6);">
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 25px; color: #F2F7FC; margin: 0 0 10px;">First Overall</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #6FD9FF; margin: 0;">University hackathon &middot; 2024</p>
+        </div>
+        <div style="padding: 30px 26px; background: linear-gradient(rgba(18,22,38,.86), rgba(10,12,22,.86));">
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 25px; color: #F2F7FC; margin: 0 0 10px;">Hardware Prize</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #7FA0BC; margin: 0;">Maker weekend &middot; 2023</p>
+        </div>
+        <div style="padding: 30px 26px; background: linear-gradient(rgba(40,10,18,.86), rgba(14,6,12,.9));">
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 25px; color: #F2F7FC; margin: 0 0 10px;">People's Choice</p>
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #B0576A; margin: 0;">Design jam &middot; 2023</p>
+        </div>
+      </div>
+      <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; border-bottom: 1px solid rgba(111,217,255,.5); padding-bottom: 4px;">Download r&eacute;sum&eacute; &mdash; PDF</a>
+    </section>
+
+    <section id="gallery" data-screen-label="Gallery" style="scroll-margin-top: 120px; padding: 90px 0 70px;">
+      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .42em; text-transform: uppercase; color: #6FD9FF; margin: 0 0 22px;">IV &nbsp;&mdash;&nbsp; Gallery</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(40px, 6.4vw, 88px); line-height: 1.02; margin: 0 0 24px; color: #F2F7FC;">Quiet <em style="font-style: italic; color: #AEC2D6;">hours</em></h2>
+      <p style="max-width: 560px; font-size: 18px; line-height: 1.75; color: #93A9BF; margin: 0 0 68px;">Film frames and sketchbook pages. Made for no reason other than the light was right.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px;">
+        <div style="grid-column: span 2; aspect-ratio: 16 / 9; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">wide frame &mdash; 2400&times;1350</span>
+        </div>
+        <div style="aspect-ratio: 3 / 4; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">portrait &mdash; 900&times;1200</span>
+        </div>
+        <div style="aspect-ratio: 1 / 1; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">square &mdash; 1200&times;1200</span>
+        </div>
+        <div style="aspect-ratio: 1 / 1; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">sketch &mdash; 1200&times;1200</span>
+        </div>
+        <div style="grid-column: span 2; aspect-ratio: 16 / 9; border: 1px solid rgba(198,214,230,.14); background-color: rgba(120,158,190,.05); background-image: repeating-linear-gradient(135deg, rgba(214,232,246,.06) 0 12px, transparent 12px 24px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(174,194,214,.75);">wide frame &mdash; 2400&times;1350</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" data-screen-label="Contact" style="position: relative; scroll-margin-top: 120px; padding: 120px 0 40px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <div style="position: absolute; top: 50%; left: 50%; width: 900px; height: 900px; transform: translate(-50%, -50%); pointer-events: none;">
+        <div style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(198,214,230,.06);"></div>
+        <div style="position: absolute; inset: 150px; border-radius: 50%; border: 1px solid rgba(111,217,255,.12);"></div>
+        <div style="position: absolute; inset: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(111,217,255,.08) 0%, transparent 70%);"></div>
+      </div>
+      <p style="position: relative; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .42em; text-transform: uppercase; color: #6FD9FF; margin: 0 0 30px;">V &nbsp;&mdash;&nbsp; Contact</p>
+      <h2 style="position: relative; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(44px, 8vw, 112px); line-height: 1; margin: 0 0 32px; color: #F2F7FC; text-shadow: 0 0 80px rgba(240,183,120,.18);">Say something<br /><em style="font-style: italic; color: #AEC2D6;">worth saying</em></h2>
+      <p style="position: relative; max-width: 520px; font-size: 19px; line-height: 1.8; color: #93A9BF; margin: 0 0 52px;">Open to collaborations, difficult problems, and full-time work. I answer everything that isn't a pitch deck.</p>
+      <a href="mailto:you@example.com" style="position: relative; font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3.6vw, 44px); letter-spacing: .02em; padding: 20px 48px; color: #06121B; background: linear-gradient(#9FE8FF, #4CC9F5); box-shadow: 0 0 50px rgba(111,217,255,.4), inset 0 1px 0 rgba(255,255,255,.65);" style-hover="color: #06121B; background: linear-gradient(#BFF1FF, #6FD9FF);">you@example.com</a>
+      <div style="position: relative; display: flex; gap: 34px; flex-wrap: wrap; justify-content: center; margin-top: 54px;">
+        <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #AEC2D6;" style-hover="color: #6FD9FF;">GitHub</a>
+        <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #AEC2D6;" style-hover="color: #6FD9FF;">LinkedIn</a>
+        <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #AEC2D6;" style-hover="color: #6FD9FF;">Instagram</a>
+        <a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #AEC2D6;" style-hover="color: #6FD9FF;">Read.cv</a>
+      </div>
+    </section>
+
+    <footer style="margin-top: 130px; padding-top: 30px; border-top: 1px solid rgba(198,214,230,.10); display: flex; gap: 18px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(127,160,188,.7);">Built by hand &mdash; two kilometres up</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(127,160,188,.7);">&copy; MMXXVI</span>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;sceneArt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Atmosphere&quot;},&quot;sceneStrength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.72,&quot;min&quot;:0.15,&quot;max&quot;:1,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Atmosphere&quot;},&quot;snowfall&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Atmosphere&quot;},&quot;lowGravityDrift&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Atmosphere&quot;}}">
+class Component extends DCLogic {
+  go(id) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      const el = document.getElementById(id);
+      if (!el) return;
+      let sc = this.scrollParent();
+      const isDoc = sc === window;
+      if (isDoc) sc = document.scrollingElement || document.documentElement;
+      const nav = document.querySelector("nav");
+      const off = (nav ? nav.getBoundingClientRect().height : 0) + 24;
+      const rel = isDoc ? (sc.scrollTop || 0) : sc.scrollTop - sc.getBoundingClientRect().top;
+      const top = Math.max(0, el.getBoundingClientRect().top + rel - off);
+      if (typeof sc.scrollTo === "function") sc.scrollTo({ top: top, behavior: "smooth" });
+      const before = sc.scrollTop;
+      setTimeout(() => { if (sc.scrollTop === before) sc.scrollTop = top; }, 250);
+    };
+  }
+
+  scrollParent() {
+    let el = document.querySelector("main");
+    while (el && el.parentElement) {
+      el = el.parentElement;
+      const oy = getComputedStyle(el).overflowY;
+      if ((oy === "auto" || oy === "scroll") && el.scrollHeight > el.clientHeight) return el;
+    }
+    return window;
+  }
+
+  componentDidMount() { this.sync(); }
+  componentDidUpdate() { this.sync(); }
+
+  sync() {
+    const snow = this.props.snowfall !== false;
+    const drift = this.props.lowGravityDrift !== false;
+    document.querySelectorAll("[data-snow]").forEach((el) => {
+      el.style.animationPlayState = snow ? "running" : "paused";
+      el.style.opacity = snow ? "" : "0";
+    });
+    document.querySelectorAll("[data-float]").forEach((el) => {
+      el.style.animationPlayState = drift ? "running" : "paused";
+    });
+    const art = this.props.sceneArt !== false;
+    const strength = typeof this.props.sceneStrength === "number" ? this.props.sceneStrength : 0.72;
+    document.querySelectorAll("[data-art]").forEach((el) => {
+      el.style.display = art ? "" : "none";
+      el.style.opacity = String(strength);
+    });
+  }
+
+  renderVals() {
+    return {
+      goHome: this.go("home"),
+      goWork: this.go("work"),
+      goAbout: this.go("about"),
+      goPath: this.go("path"),
+      goGallery: this.go("gallery"),
+      goContact: this.go("contact"),
+    };
+  }
+}
+</script>
+</body>
+</html>
