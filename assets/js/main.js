@@ -24,6 +24,32 @@
     });
   }
 
+  /* ---------------- nav brand stroke-draw entrance ---------------- */
+  // Plain-SVG take on the pasted StrokeText component: the name's
+  // outline wipes in left-to-right, then the solid fill wipes in the
+  // same way behind it as the outline fades out. CSS already has the
+  // "ready to animate" state as its default (see style.css); for
+  // reduced motion we just jump straight to the plain filled text.
+  var strokeSvg = document.querySelector("[data-stroke-text]");
+  if (strokeSvg) {
+    var strokeLayer = strokeSvg.querySelector(".stroke-layer");
+    var fillLayer = strokeSvg.querySelector(".fill-layer");
+    if (reducedMotion) {
+      if (strokeLayer) strokeLayer.style.display = "none";
+      if (fillLayer) fillLayer.style.clipPath = "none";
+    } else if (strokeLayer && fillLayer) {
+      var DRAW_MS = 550;
+      var FILL_DELAY_MS = 120;
+      requestAnimationFrame(function () {
+        strokeLayer.style.clipPath = "inset(0 0% 0 0)"; // outline wipes in
+        window.setTimeout(function () {
+          fillLayer.style.clipPath = "inset(0 0% 0 0)"; // fill wipes in behind it
+          strokeLayer.style.opacity = "0"; // outline fades out
+        }, DRAW_MS + FILL_DELAY_MS);
+      });
+    }
+  }
+
   /* ---------------- hero name split-text entrance ---------------- */
   // Wraps each character of the hero name in its own <span> and fades/
   // slides them in with a per-character stagger, like the pasted
@@ -85,6 +111,7 @@
     var applyStatic = function () {
       frame.style.transform = "none";
       frame.style.borderRadius = "0";
+      frame.style.borderBottomColor = "";
       if (hint) hint.style.display = "none";
       if (bgDecor) bgDecor.style.filter = "none";
       spacer.style.height = "auto";
@@ -123,6 +150,10 @@
         // once the card reaches full size, and fade back out the same way
         // if it shrinks back down (e.g. scrolling back up past the hero).
         setHeadlineVisible(progress >= 0.98);
+        // The section's own bottom divider line only makes sense full-bleed
+        // at full size — hide it while shrunk so it doesn't read as a
+        // stray line across the small card, same symmetric show/hide.
+        frame.style.borderBottomColor = progress >= 0.98 ? "" : "transparent";
       };
       var onScroll = function () {
         if (!ticking) { ticking = true; requestAnimationFrame(update); }

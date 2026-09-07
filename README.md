@@ -56,6 +56,17 @@ The name itself animates in character-by-character on load (`[data-split-text]` 
 stagger per letter) — a plain-CSS take on the pasted SplitText component. The visual split is
 `aria-hidden`; the real `<h1>` carries an `aria-label` with the plain name for screen readers.
 
+## Nav brand stroke-draw entrance
+
+The name in the top-left nav (`[data-stroke-text]` in `main.js`) is an inline SVG with two
+overlapping `<text>` layers: a red outline wipes in left-to-right, then a solid black fill wipes in
+the same way behind it as the outline fades out — a plain-SVG take on the pasted StrokeText
+component. It uses a `clip-path` wipe rather than `stroke-dasharray` on purpose: at 13px,
+dasharray on `<text>` doesn't animate predictably (each glyph gets its own much shorter sub-path,
+so a shared dash value pops every letter in almost instantly instead of drawing) — a wipe reads the
+same and is reliable at any size. Skipped (plain filled text shown immediately) with JavaScript
+disabled or under `prefers-reduced-motion`.
+
 The botanical background also blurs while shrunk (`MAX_BG_BLUR`, 10px) and sharpens back to normal
 as the card reaches full size — draws the eye to the card instead of the pattern around it.
 

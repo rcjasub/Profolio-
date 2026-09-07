@@ -18,6 +18,8 @@
   .hero-expand__hint { display: none !important; }
   .bg-decor { filter: none !important; }
   .hero__headline { opacity: 1 !important; transform: none !important; }
+  .nav__brand-stroke .fill-layer { clip-path: none !important; }
+  .nav__brand-stroke .stroke-layer { display: none !important; }
 </style></noscript>
 </head>
 <body>
@@ -38,8 +40,12 @@
 <div class="page">
 
   <nav class="nav">
-    <a href="#top" class="nav__brand">
-      <span class="dot"></span>Jocsan Rodriguez
+    <a href="#top" class="nav__brand" aria-label="Jocsan Rodriguez">
+      <span class="dot"></span>
+      <svg class="nav__brand-stroke" data-stroke-text width="220" height="20" aria-hidden="true" focusable="false">
+        <text class="stroke-layer" x="0" y="14">Jocsan Rodriguez</text>
+        <text class="fill-layer" x="0" y="14">Jocsan Rodriguez</text>
+      </svg>
     </a>
     <button class="nav__toggle" type="button" data-nav-toggle aria-label="Toggle navigation" aria-expanded="false">
       <span></span>

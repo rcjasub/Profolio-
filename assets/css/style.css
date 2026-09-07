@@ -190,6 +190,38 @@ main { position: relative; z-index: 10; }
 }
 .nav__brand:hover { color: var(--ink); }
 
+/* Nav brand "outline draws in, then fills" entrance — a plain-SVG take
+   on the pasted StrokeText component. Both layers reveal via a
+   left-to-right clip-path wipe rather than stroke-dasharray: at this
+   font size (13px) dasharray on <text> doesn't animate predictably —
+   each glyph gets its own much-shorter sub-path, so a shared dash
+   value pops all of them in near-instantly instead of drawing. A wipe
+   reads the same (outline appears, then fill catches up behind it)
+   and works reliably at any size. Base state here already assumes
+   main.js is running (both layers clipped shut); <noscript> in
+   index.html restores the plain filled text when it isn't. */
+.nav__brand-stroke { display: block; overflow: visible; }
+.nav__brand-stroke text {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.nav__brand-stroke .fill-layer {
+  fill: var(--ink);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .45s cubic-bezier(.65,0,.35,1);
+}
+.nav__brand-stroke .stroke-layer {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: .8px;
+  clip-path: inset(0 100% 0 0);
+  opacity: 1;
+  transition: clip-path .55s cubic-bezier(.65,0,.35,1), opacity .3s ease;
+}
+
 .dot {
   display: inline-block;
   width: 11px;
