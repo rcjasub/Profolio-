@@ -454,6 +454,47 @@ main { position: relative; z-index: 10; }
   text-wrap: pretty;
 }
 
+/* Highlight/underline marker on key phrases in the intro — a plain-
+   CSS/SVG take on the pasted Highlighter component. Both reveal via
+   the same left-to-right wipe used elsewhere on the page, triggered
+   in main.js alongside the rest of the headline (so it replays each
+   time the hero re-expands, not just once). Inert (no wipe) without
+   JS or under prefers-reduced-motion — the color/underline just show
+   already in place. */
+.hl { position: relative; display: inline-block; color: inherit; }
+
+.hl--highlight::before {
+  content: "";
+  position: absolute;
+  inset: -1px -5px;
+  z-index: -1;
+  background: rgba(255,8,0,.15);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .5s cubic-bezier(.65,0,.35,1);
+}
+.hl--highlight.is-active::before { clip-path: inset(0 0% 0 0); }
+
+.hl__underline {
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  bottom: -6px;
+  width: calc(100% + 6px);
+  height: 10px;
+  overflow: visible;
+  pointer-events: none;
+}
+.hl__underline path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 110;
+  stroke-dashoffset: 110;
+  transition: stroke-dashoffset .6s cubic-bezier(.65,0,.35,1);
+}
+.hl--underline.is-active .hl__underline path { stroke-dashoffset: 0; }
+
 .hero__stats {
   display: flex;
   gap: 26px;
@@ -685,13 +726,44 @@ main { position: relative; z-index: 10; }
   padding: 0 26px;
   line-height: 2.1;
 }
-.award-card__shot--photo { background-image: none; }
+.award-card__shot--photo { position: relative; background-image: none; }
 .award-card__shot--photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
+
+/* Pixel-grid reveal on the award photos — a plain-CSS/JS take on the
+   pasted PixelImage component. main.js arms this (inserts the tile
+   grid, starts the image grayscale) only once it's actually going to
+   animate the reveal; without JS or under prefers-reduced-motion the
+   photos just show normally, full color, right away. Symmetric and
+   repeatable: replays every time it scrolls into view, reverses (back
+   to grayscale/tiled) when it scrolls out. */
+.award-card__shot--photo.is-pixel-armed img {
+  filter: grayscale(1);
+  transition: filter 2s ease;
+}
+.award-card__shot--photo.is-pixel-armed.is-pixel-revealed img { filter: grayscale(0); }
+/* Suppresses that transition for exactly one frame while arming, so
+   going from "no filter" to "grayscale(1)" the first time is instant
+   rather than an unwanted fade-into-grayscale on load. */
+.award-card__shot--photo.no-pixel-transition img { transition: none !important; }
+
+.pixel-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  pointer-events: none;
+}
+.pixel-tile {
+  background: var(--bg);
+  opacity: 1;
+  transition: opacity .9s ease;
+}
+.award-card__shot--photo.is-pixel-revealed .pixel-tile { opacity: 0; }
 .award-card figcaption {
   padding: 26px 24px 30px;
   border-top: 1px solid var(--rule);

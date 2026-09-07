@@ -96,10 +96,55 @@
     var headline = expandRoot.querySelector("[data-hero-headline]");
     var bgDecor = document.querySelector(".bg-decor");
     var MAX_BG_BLUR = 10; // px, ~"50% blurred" while shrunk, sharp once fully expanded
+
+    // Hero stat numbers ("3", "3", "2") count up from 0 each time the
+    // headline becomes visible, and reset so they can replay if it's
+    // hidden and shown again — a plain-JS take on the pasted
+    // NumberTicker component. `data-ticker` on each <p> holds the
+    // target value; the plain digit is what's there without JS.
+    var tickerEls = headline ? Array.prototype.slice.call(headline.querySelectorAll("[data-ticker]")) : [];
+    var tickerRaf = null;
+    var setTickersFinal = function () {
+      tickerEls.forEach(function (el) { el.textContent = el.getAttribute("data-ticker"); });
+    };
+    var animateTickers = function () {
+      if (tickerRaf) cancelAnimationFrame(tickerRaf);
+      if (reducedMotion || !tickerEls.length) { setTickersFinal(); return; }
+      var targets = tickerEls.map(function (el) { return parseInt(el.getAttribute("data-ticker"), 10) || 0; });
+      var TICKER_MS = 900;
+      var start = null;
+      var frame = function (now) {
+        if (start === null) start = now;
+        var t = Math.min(1, (now - start) / TICKER_MS);
+        var eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+        tickerEls.forEach(function (el, i) { el.textContent = String(Math.round(targets[i] * eased)); });
+        tickerRaf = t < 1 ? requestAnimationFrame(frame) : null;
+      };
+      tickerEls.forEach(function (el) { el.textContent = "0"; });
+      tickerRaf = requestAnimationFrame(frame);
+    };
+    var resetTickers = function () {
+      if (tickerRaf) { cancelAnimationFrame(tickerRaf); tickerRaf = null; }
+      tickerEls.forEach(function (el) { el.textContent = "0"; });
+    };
+
+    // Highlight/underline marks in the intro paragraph — plain-CSS/SVG
+    // take on the pasted Highlighter component. Reveals alongside the
+    // rest of the headline, same symmetric show/hide.
+    var hlEls = headline ? Array.prototype.slice.call(headline.querySelectorAll("[data-hl]")) : [];
+    var setHighlightsVisible = function (visible) {
+      hlEls.forEach(function (el) { el.classList.toggle("is-active", visible); });
+    };
+
     // Symmetric with scroll direction: shows once fully expanded, hides
     // again the same way if the card shrinks back down (not one-time).
+    var headlineVisible = false;
     var setHeadlineVisible = function (visible) {
+      if (visible === headlineVisible) return; // no change — called every scroll tick
+      headlineVisible = visible;
       if (headline) headline.classList.toggle("is-visible", visible);
+      if (visible) animateTickers(); else resetTickers();
+      setHighlightsVisible(visible);
     };
 
     // On short viewports (landscape phones, small laptops with lots of
@@ -194,6 +239,57 @@
       minHeight: 200.00,
       minWidth: 200.00,
       // No color overrides — this is FOG's own default palette.
+    });
+  }
+
+  /* ---------------- award photo pixel-grid reveal ---------------- */
+  // Plain-CSS/JS take on the pasted PixelImage component: each photo
+  // gets an overlay grid of tiles that fade out in a shuffled order as
+  // it scrolls into view, while the image itself fades from grayscale
+  // to color underneath — and reverses the same way if it scrolls back
+  // out, so it replays every time rather than just once. Skipped
+  // entirely under prefers-reduced-motion — images just show normally,
+  // full color, right away, same as with JS disabled (nothing here is
+  // armed until this code actually runs).
+  if (!reducedMotion) {
+    var PIXEL_ROWS = 4;
+    var PIXEL_COLS = 6;
+    var PIXEL_STAGGER_MAX = 0.9; // seconds — how spread out the tiles' delays are
+    var pixelObserver = "IntersectionObserver" in window
+      ? new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            entry.target.classList.toggle("is-pixel-revealed", entry.isIntersecting);
+          });
+        }, { threshold: 0.3 })
+      : null;
+
+    document.querySelectorAll("[data-pixel-reveal]").forEach(function (container) {
+      var grid = document.createElement("div");
+      grid.className = "pixel-grid";
+      grid.style.gridTemplateColumns = "repeat(" + PIXEL_COLS + ", 1fr)";
+      grid.style.gridTemplateRows = "repeat(" + PIXEL_ROWS + ", 1fr)";
+      for (var i = 0; i < PIXEL_ROWS * PIXEL_COLS; i++) {
+        var tile = document.createElement("div");
+        tile.className = "pixel-tile";
+        // Shuffled rather than row-by-row, so it reads as a dissolve.
+        tile.style.transitionDelay = (Math.random() * PIXEL_STAGGER_MAX).toFixed(2) + "s";
+        grid.appendChild(tile);
+      }
+      container.appendChild(grid);
+
+      // Arm instantly (no transition) for one frame, so becoming
+      // grayscale the first time doesn't itself fade in like a reveal
+      // would — only reveal/hide after this should ever animate.
+      container.classList.add("no-pixel-transition");
+      container.classList.add("is-pixel-armed");
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          container.classList.remove("no-pixel-transition");
+        });
+      });
+
+      if (pixelObserver) pixelObserver.observe(container);
+      else container.classList.add("is-pixel-revealed"); // no IO support — just show it
     });
   }
 

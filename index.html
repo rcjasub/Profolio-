@@ -20,6 +20,8 @@
   .hero__headline { opacity: 1 !important; transform: none !important; }
   .nav__brand-stroke .fill-layer { clip-path: none !important; }
   .nav__brand-stroke .stroke-layer { display: none !important; }
+  .hl--highlight::before { clip-path: none !important; }
+  .hl__underline path { stroke-dashoffset: 0 !important; }
 </style></noscript>
 </head>
 <body>
@@ -77,11 +79,11 @@
                   <p>Open to work</p>
                 </div>
                 <div class="hero__row">
-                  <p class="hero__intro">Software engineer and CS student at Brooklyn College. I build things that touch real users &mdash; AI-powered tools, real-time systems, and the backend plumbing that keeps them running. Based in New York, NY.</p>
+                  <p class="hero__intro">Software engineer and CS student at Brooklyn College. I build things that touch real users &mdash; <span class="hl hl--highlight" data-hl>AI-powered tools</span>, <span class="hl hl--underline" data-hl>real-time systems<svg class="hl__underline" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2,7 Q25,10 50,6 T98,7"/></svg></span>, and the backend plumbing that keeps them running. Based in New York, NY.</p>
                   <div class="hero__stats">
-                    <div class="hero__stat"><p>3</p><p>Internships</p></div>
-                    <div class="hero__stat"><p>3</p><p>Shipped projects</p></div>
-                    <div class="hero__stat"><p>2</p><p>Hackathon wins</p></div>
+                    <div class="hero__stat"><p data-ticker="3">0</p><p>Internships</p></div>
+                    <div class="hero__stat"><p data-ticker="3">0</p><p>Shipped projects</p></div>
+                    <div class="hero__stat"><p data-ticker="2">0</p><p>Hackathon wins</p></div>
                   </div>
                 </div>
               </div>
@@ -247,7 +249,7 @@
       <div class="awards-grid">
 
         <figure class="award-card reveal">
-          <div class="award-card__shot award-card__shot--photo">
+          <div class="award-card__shot award-card__shot--photo" data-pixel-reveal>
             <img src="assets/img/awards/hackknight-2025.jpg" alt="The StockTube team on stage after winning Best Financial Hack at HackKnight 2025" loading="lazy">
           </div>
           <figcaption>
@@ -257,7 +259,7 @@
         </figure>
 
         <figure class="award-card reveal">
-          <div class="award-card__shot award-card__shot--photo">
+          <div class="award-card__shot award-card__shot--photo" data-pixel-reveal>
             <img src="assets/img/awards/nyc-hackathon.jpg" alt="Students at a hackathon venue, working at tables in a common area" loading="lazy">
           </div>
           <figcaption>
@@ -267,7 +269,7 @@
         </figure>
 
         <figure class="award-card reveal">
-          <div class="award-card__shot award-card__shot--photo">
+          <div class="award-card__shot award-card__shot--photo" data-pixel-reveal>
             <img src="assets/img/awards/datadog.jpg" alt="Group photo with a large inflatable Datadog mascot in an office space overlooking the city" loading="lazy">
           </div>
           <figcaption>
@@ -277,7 +279,7 @@
         </figure>
 
         <figure class="award-card reveal">
-          <div class="award-card__shot award-card__shot--photo">
+          <div class="award-card__shot award-card__shot--photo" data-pixel-reveal>
             <img src="assets/img/awards/linkedin-hack-week.jpg" alt="Group photo with the LinkedIn llama mascot at LinkedIn Hack Week '26" loading="lazy">
           </div>
           <figcaption>
